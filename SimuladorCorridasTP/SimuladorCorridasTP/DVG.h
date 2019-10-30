@@ -8,5 +8,15 @@ using namespace std;
 class DGV {
 	vector <Carro*> carros;
 	vector <Piloto*> pilotos;
+
+public:
+
+	void insereCarro(Carro *aux) {
+		carros.push_back(aux);
+	}
+
+	void inserePiloto(Piloto* aux) {
+		
+	}
 	
 };

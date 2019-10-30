@@ -9,6 +9,12 @@ class Piloto {
 	Carro *car;
 
 public:
-
 	Piloto(string name);
+
+	void acelera();
+
+	void trava();
+
+	Piloto* fabrica(char tipo, string nome);
+
 };
