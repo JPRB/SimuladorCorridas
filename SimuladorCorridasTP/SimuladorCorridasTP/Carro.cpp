@@ -14,11 +14,19 @@ void Carro::manivela(int val) {
 }
 
 void Carro::mudaEmergencia() {
-	!emergencia;
+	//!emergencia;
+	if (emergencia == false)
+		emergencia = true;
+	else
+		emergencia = false;
 }
 
 void Carro::mudaEstado() {
-	!parado;
+	//!parado;
+	if (parado == false)
+		parado = true;
+	else
+		parado = false;
 }
 
 void Carro::acelerador() {

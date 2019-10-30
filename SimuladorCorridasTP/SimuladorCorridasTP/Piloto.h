@@ -6,7 +6,7 @@ using namespace std;
 
 class Piloto {
 	const string nome; //unico, a classe altera caso ja exista
-	Carro* c;
+	Carro *car;
 
 public:
 

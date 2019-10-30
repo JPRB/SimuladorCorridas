@@ -1,29 +1,6 @@
 #include "Utils.h"
 
-void comandosModo1(vector <string> c) {
-	if (c[0] == "help")
-		listaComandosModo1();
 
-	else if (c[0] == "carregaP")
-		cout << "carregaP d Aco";
-
-	else if (c[0] == "carregaA")
-		cout << "carregaP d Aco";
-	else if (c[0] == "cria")
-		cout << "carregaP d Aco";
-	else if (c[0] == "apaga")
-		cout << "carregaP d Aco";
-	else if (c[0] == "entranocarro")
-		cout << "carregaP d Aco";
-	else if (c[0] == "lista")
-		cout << "carregaP d Aco";
-	else if (c[0] == "savedgv")
-		cout << "carregaP d Aco";
-	else if (c[0] == "loaddgv")
-		cout << "carregaP d Aco";
-	else if (c[0] == "deldgv")
-		cout << "carregaP d Aco";
-}
 
 void comandosModo2(vector <string> c) {
 	if (c[0] == "help")
@@ -49,21 +26,7 @@ void comandosModo2(vector <string> c) {
 		cout << "carregaP d Aco";
 	else if (c[0] == "log")
 		cout << "carregaP d Aco";
-}
 
-void listaComandosModo1() {
-	cout << "Estes sao os comandos que existem: " << endl;
-	cout << "- carregaP <nomeficheiro>" << endl;
-	cout << "- carregaC <nomeficheiro>" << endl;
-	cout << "- carregaA <nomeficheiro>" << endl;
-	cout << "- cria <letraTipo> <dados do objeto>" << endl;
-	cout << "- apaga <letraTipo> identificador" << endl;
-	cout << "- entranocarro <letraCarro> <nomePiloto>" << endl;
-	cout << "- saidocarro <letraCarro>" << endl;
-	cout << "- lista" << endl;
-	cout << "- savedgv <nome>" << endl;
-	cout << "- loaddgv <nome>" << endl;
-	cout << "- deldgv <nome>" << endl;
 }
 
 void listaComandosModo2() {

@@ -3,5 +3,5 @@
 
 Piloto::Piloto(string name)
 	:nome(name){
-		c = nullptr;
+		car = nullptr;
 	}

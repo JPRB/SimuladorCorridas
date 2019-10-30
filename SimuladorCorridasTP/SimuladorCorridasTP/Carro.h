@@ -1,6 +1,4 @@
 #pragma once
-#include "Piloto.h"
-#include "CrazyDriver.h"
 #include <string>
 
 using namespace std;
