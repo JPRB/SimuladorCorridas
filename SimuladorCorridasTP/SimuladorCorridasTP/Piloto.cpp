@@ -19,12 +19,12 @@ void Piloto::trava() {
 		car->travao();
 }
 
-Piloto* Piloto::fabrica(char tipo, string nome) {
-	if (tipo == 'C')
+Piloto* Piloto::fabrica(string tipo, string nome) {
+	if (tipo == "C")
 		return new CrazyDriver(nome);
-	else if (tipo == 'F')
+	else if (tipo == "F")
 		return new FastDriver(nome);
-	else if (tipo == 'S')
+	else if (tipo == "S")
 		//return new SurpriseDriver();
 		return nullptr;
 	else

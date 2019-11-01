@@ -15,6 +15,10 @@ public:
 
 	void trava();
 
-	Piloto* fabrica(char tipo, string nome);
+	string getNome() const {
+		return nome;
+	}
+
+	static Piloto* fabrica(string tipo, string nome);
 
 };

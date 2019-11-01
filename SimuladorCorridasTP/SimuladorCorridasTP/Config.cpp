@@ -1,4 +1,9 @@
 #include "Config.h"
+#include "Piloto.h"
+
+Config::Config(DGV* d) {
+	dgv = d;
+}
 
 void Config::leituraComandos() {
 
@@ -31,14 +36,28 @@ void Config::opcoesModo1() {
 
 	else if (c[0] == "carregaA")
 		cout << "carregaP d Aco";
-	else if (c[0] == "cria")
-		cout << "carregaP d Aco";
+
+	else if (c[0] == "cria") { //talvez chamar função que faça isto...
+		if (c[1] == "p") {
+			Piloto* aux = Piloto::fabrica(c[2], c[3]);
+			if (aux != nullptr)
+				dgv->inserePiloto(aux);
+			else
+				cout << "Piloto não inserido" << endl;
+		}
+		else if (c[1] == "c") {
+			Carro* aux = new Carro("Mazda", 'a', 2500, 150, "M5");
+			dgv->insereCarro(aux);
+		}
+	}
+
 	else if (c[0] == "apaga")
-		cout << "carregaP d Aco";
+			cout << "carregaP d Aco";
 	else if (c[0] == "entranocarro")
-		cout << "carregaP d Aco";
+			cout << "carregaP d Aco";
 	else if (c[0] == "lista")
-		cout << "carregaP d Aco";
+		cout << dgv->listaCarros();
+		//cout << "carregaP d Aco";
 	else if (c[0] == "savedgv")
 		cout << "carregaP d Aco";
 	else if (c[0] == "loaddgv")

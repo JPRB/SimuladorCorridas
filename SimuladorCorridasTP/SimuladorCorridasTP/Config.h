@@ -1,4 +1,5 @@
 #pragma once
+#include "DGV.h"
 #include <vector>
 #include <string>
 #include <iostream>
@@ -6,7 +7,10 @@
 
 using namespace std;
 
+
 class Config {
+
+	DGV *dgv;
 
 	vector<string> c; //vetor que guarda os comandos
 
@@ -15,6 +19,8 @@ class Config {
 	void helpModo1() const;
 
 public:
+
+	Config(DGV* d);
 
 	void leituraComandos();
 

@@ -11,12 +11,12 @@ class DGV {
 
 public:
 
-	void insereCarro(Carro *aux) {
-		carros.push_back(aux);
-	}
+	void insereCarro(Carro* aux);
 
-	void inserePiloto(Piloto* aux) {
-		
-	}
-	
+	void inserePiloto(Piloto* aux);
+
+	string listaPilotos() const;
+
+	string listaCarros() const;
+
 };

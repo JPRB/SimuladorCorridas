@@ -1,10 +1,13 @@
-#include "Utils.h"
 #include "Config.h"
+#include "DGV.h"
 
 using namespace std;
 
 int main() {
-	Config cfg;
+	DGV diretorio;
+	Config cfg(&diretorio);
 
 	cfg.leituraComandos();
+
+	
 }
