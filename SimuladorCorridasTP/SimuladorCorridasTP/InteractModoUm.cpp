@@ -1,11 +1,11 @@
-#include "Config.h"
+#include "InteractModoUm.h"
 #include "Piloto.h"
 
-Config::Config(DGV* d) {
-	dgv = d;
+InteractModoUm::InteractModoUm(Jogo* d) {
+	j = d;
 }
 
-void Config::leituraComandos() {
+void InteractModoUm::leituraComandos() {
 
 	while (1){
 		c.clear();	//limpa o vetor que recebe os comandos
@@ -27,7 +27,7 @@ void Config::leituraComandos() {
 	}
 }
 
-void Config::opcoesModo1() {
+void InteractModoUm::opcoesModo1() {
 	if (c[0] == "help")
 		helpModo1();
 
@@ -37,27 +37,18 @@ void Config::opcoesModo1() {
 	else if (c[0] == "carregaA")
 		cout << "carregaP d Aco";
 
-	else if (c[0] == "cria") { //talvez chamar função que faça isto...
-		if (c[1] == "p") {
-			Piloto* aux = Piloto::fabrica(c[2], c[3]);
-			if (aux != nullptr)
-				dgv->inserePiloto(aux);
-			else
-				cout << "Piloto não inserido" << endl;
-		}
-		else if (c[1] == "c") {
-			Carro* aux = new Carro("Mazda", 'a', 2500, 150, "M5");
-			dgv->insereCarro(aux);
-		}
+	else if (c[0] == "cria") {
+		int err = j->criaItensJogo(c);
+		if (err == 1)
+			cout << "Erro a criar o piloto" << endl;
 	}
-
 	else if (c[0] == "apaga")
-			cout << "carregaP d Aco";
+		cout << "carregaP d Aco";
 	else if (c[0] == "entranocarro")
-			cout << "carregaP d Aco";
+		cout << "carregaP d Aco";
 	else if (c[0] == "lista")
-		cout << dgv->listaCarros();
 		//cout << "carregaP d Aco";
+		cout << j->mostraPilotos();
 	else if (c[0] == "savedgv")
 		cout << "carregaP d Aco";
 	else if (c[0] == "loaddgv")
@@ -66,7 +57,7 @@ void Config::opcoesModo1() {
 		cout << "carregaP d Aco";
 }
 
-void Config::helpModo1() const {
+void InteractModoUm::helpModo1() const {
 	cout << "Estes sao os comandos que existem: " << endl;
 	cout << "- carregaP <nomeficheiro>" << endl;
 	cout << "- carregaC <nomeficheiro>" << endl;

@@ -1,5 +1,6 @@
 #pragma once
-#include "DGV.h"
+
+#include "Jogo.h"
 #include <vector>
 #include <string>
 #include <iostream>
@@ -8,9 +9,9 @@
 using namespace std;
 
 
-class Config {
+class InteractModoUm{
 
-	DGV *dgv;
+	Jogo* j;
 
 	vector<string> c; //vetor que guarda os comandos
 
@@ -20,7 +21,7 @@ class Config {
 
 public:
 
-	Config(DGV* d);
+	InteractModoUm(Jogo* d);
 
 	void leituraComandos();
 

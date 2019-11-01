@@ -1,13 +1,14 @@
-#include "Config.h"
-#include "DGV.h"
+#include "Jogo.h"
+#include "InteractModoUm.h"
+
 
 using namespace std;
 
 int main() {
-	DGV diretorio;
-	Config cfg(&diretorio);
+	Jogo jog;
 
-	cfg.leituraComandos();
+	InteractModoUm it(&jog);
 
+	it.leituraComandos();
 	
 }
