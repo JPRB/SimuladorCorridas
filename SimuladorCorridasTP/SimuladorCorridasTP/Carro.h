@@ -4,16 +4,32 @@
 using namespace std;
 
 class Carro {
-	string marca, modelo;
-	char id;
-	int energia, maxenergia;
-	bool movimento, emergencia;
-	int velocidade, maxvelocidade;
-	//Piloto p;
+	const string marca;
+	string modelo;
+	const char id;
+	const int maxvelocidade;
+	const double maxenergia;
+	int velocidade;
+	double energia;
+	bool parado, emergencia;
 	bool danificado;
 
 public:
 
-	Carro();
+	Carro(string mar, char idd, double maxe, int maxv, string mod = "Modelo Base");
+
+	char getID() const;
+
+	void manivela(int val);
+
+	void mudaEmergencia();
+
+	void mudaEstado();
+
+	void acelerador();
+
+	void travao();
+
+
 
 };
