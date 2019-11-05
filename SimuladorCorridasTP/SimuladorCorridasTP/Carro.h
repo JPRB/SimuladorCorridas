@@ -4,6 +4,7 @@
 using namespace std;
 
 class Carro {
+	static int idcar;
 	const string marca;
 	string modelo;
 	const char id;
@@ -16,9 +17,11 @@ class Carro {
 
 public:
 
-	Carro(string mar, char idd, double maxe, int maxv, string mod = "Modelo Base");
+	Carro(string mar, double maxe, int maxv, string mod = "Modelo Base");
 
 	char getID() const;
+
+	string getMarca() const;
 
 	void manivela(int val);
 
@@ -30,6 +33,6 @@ public:
 
 	void travao();
 
-
+	~Carro(){}
 
 };

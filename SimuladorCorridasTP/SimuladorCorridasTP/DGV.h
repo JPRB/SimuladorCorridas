@@ -15,6 +15,10 @@ public:
 
 	void inserePiloto(Piloto* aux);
 
+	void eliminaCarro(string ident);
+
+	void eliminaPiloto(string ident);
+
 	string listaPilotos() const;
 
 	string listaCarros() const;

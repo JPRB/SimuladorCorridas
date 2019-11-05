@@ -35,16 +35,24 @@ void InteractModoUm::opcoesModo1() {
 	else if (c[0] == "carregaP")
 		cout << "carregaP d Aco";
 
+	else if (c[0] == "carregaC")
+		cout << "carregaP d Aco";
 	else if (c[0] == "carregaA")
 		cout << "carregaP d Aco";
 
 	else if (c[0] == "cria") {
 		int err = j->criaItensJogo(c);
 		if (err == 1)
-			cout << "Erro a criar o piloto" << endl;
+			cout << "Erro a criar o piloto, tente novamente" << endl;
+		if (err == 2)
+			cout << "Erro a criar o carro, tente novamente" << endl;
+
+		if (err == 5) {
+			cout << "Tipo não existente, tente novamente" << endl;
+		}
 	}
 	else if (c[0] == "apaga")
-		cout << "carregaP d Aco";
+		j->eliminaCarro(c[1]);
 	else if (c[0] == "entranocarro")
 		cout << "carregaP d Aco";
 	else if (c[0] == "lista")

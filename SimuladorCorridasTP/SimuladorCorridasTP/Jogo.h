@@ -13,6 +13,8 @@ public:
 
 	int criaItensJogo(vector <string> vec);
 
+	void eliminaCarro(string ident);
+
 	string mostraPilotos() const;
 
 };
