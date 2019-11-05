@@ -9,24 +9,35 @@ class Carro {
 	const char id;
 	const int maxvelocidade;
 	const double maxenergia;
-	int velocidade;
-	double energia;
-	bool parado, emergencia;
-	bool danificado;
+	int velocidade = 0;
+	double energia = 0;
+	bool parado = false, emergencia = false;
+	bool danificado = false;
 
 public:
 
-	Carro(string mar, char idd, double maxe, int maxv, string mod = "Modelo Base");
+	//Construtor
+	Carro(string mar, char idd, double maxe, int maxv, string mod = "Base");
+
+	//Destrutor da Class
+	~Carro(){}
 
 	char getID() const;
 
-	void manivela(int val);
+	bool getDanificado() const;
 
-	void mudaEmergencia();
+	void setDanificado(bool danificado);
 
-	void mudaEstado();
+	// Manivela de carregamento do carro (em mAh)
+	void manivela(int valCarregamento);
 
-	void acelerador();
+	void setEmergencia();
+
+	// Alterar Estado do Carro ( e vice-versa)
+	//// Se ñ estiver parado, passa a estar
+	void setEstado();
+
+	void acelerar(int velo=1);
 
 	void travao();
 
