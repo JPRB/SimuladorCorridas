@@ -23,12 +23,12 @@ void Piloto::trava() {
 
 Piloto* Piloto::fabrica(string tipo, string nome) {
 	string n = nome;
-	for(int i = 0; i < usados.size(); i++)
+	/*for(int i = 0; i < usados.size(); i++)
 		if (usados[i] == n) {
 			cout << usados[i] << endl;
 			n += 'c' + num; //ver isto!!!
 			num++;
-		}
+		}*/
 	if (tipo == "C") {
 		usados.push_back(n);
 		return new CrazyDriver(n);

@@ -28,6 +28,7 @@ void InteractModoUm::leituraComandos() {
 }
 
 void InteractModoUm::opcoesModo1() {
+
 	if (c[0] == "help")
 		helpModo1();
 
