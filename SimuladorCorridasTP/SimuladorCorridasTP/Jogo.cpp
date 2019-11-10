@@ -1,35 +1,45 @@
 #include "Jogo.h"
 #include <iostream>
+#include <algorithm>
 
 Jogo::Jogo() {
 	dgv = new DGV();
 }
 
-int Jogo::criaItensJogo(vector <string> vec) {
-	if (vec[1] == "p") {
-		//if (dgv->procuraNomePiloto(vec[3]) == false) {
-		Piloto* aux = Piloto::fabrica(vec[2], vec[3]);
-		if (aux != nullptr)
-			dgv->inserePiloto(aux);
-		else
-			return 1;
-		//}
+string Jogo::criaItensJogo(vector <string> vec) {
+	if (vec[1] == "p"){
+		transform(vec[2].begin(), vec[2].end(), vec[2].begin(), ::toupper); //letra identificadora do piloto passa a maiuscula
+		return dgv->inserePiloto(vec[2], vec[3]);
 	}
-	else if (vec[1] == "c") {
-		if (vec[2] != "" && vec[3] != "" && vec[4] != "") {
-			Carro* aux = new Carro(vec[2], stod(vec[3]), stoi(vec[4]), vec[5]);
-			dgv->insereCarro(aux);
-			return 0;
-		}
-		else
-			return 2;
-	}
+
+	else if (vec[1] == "c")
+		return dgv->insereCarro(vec);
+
 	else
-		return 5;
+		return "Nao foi possivel criar nenhum item, verifique a letraTipo e tente novamente\n";
+	
 }
 
-void Jogo::eliminaCarro(string ident) {
-	dgv->eliminaPiloto(ident);
+string Jogo::inserePilotoEmCarro(string car, string pil) {
+	return dgv->inserePilotoEmCarro(car, pil);
+}
+
+string Jogo::eliminaCarro(vector <string> vec) {
+	transform(vec[1].begin(), vec[1].end(), vec[1].begin(), ::tolower); //1-onde comecar , 2 - onde terminar, 3-onde guardar nova string, 4-o que fazer
+	transform(vec[2].begin(), vec[2].end(), vec[2].begin(), ::tolower);
+
+	if (vec[1] == "p")
+		return dgv->eliminaPiloto(vec[2]);
+
+	else if (vec[1] == "c")
+		return dgv->eliminaCarro(vec[2]);
+	else
+		return "Opcao nao encontrada, tente novamente";
+}
+
+string Jogo::retiraPilotoDeCarro(string pil) {
+	transform(pil.begin(), pil.end(), pil.begin(), ::tolower);
+	return dgv->retiraPilotoDeCarro(pil);
 }
 
 string Jogo::mostraPilotos() const {

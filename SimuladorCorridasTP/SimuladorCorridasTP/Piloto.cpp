@@ -29,6 +29,26 @@ void Piloto::trava() {
 		car->travao();
 }
 
+char Piloto::getIDCar() const {
+	if(car != nullptr)
+		return car->getID();
+}
+
+bool Piloto::temCarroAtribuido() const{
+	if (car != nullptr)
+		return true;
+
+	return false;
+}
+
+void Piloto::atribuiCarro(Carro* c) {
+	car = c;
+}
+
+void Piloto::retiraCarro() {
+	car = nullptr;
+}
+
 Piloto* Piloto::fabrica(string tipo, string nome) {
 	string n = nome;
 	bool existe = true, alterado = false;

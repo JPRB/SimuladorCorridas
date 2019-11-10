@@ -11,9 +11,13 @@ class Jogo {
 public:
 	Jogo();
 
-	int criaItensJogo(vector <string> vec);
+	string criaItensJogo(vector <string> vec);
 
-	void eliminaCarro(string ident);
+	string eliminaCarro(vector <string> vec);
+
+	string inserePilotoEmCarro(string car, string pil);
+
+	string retiraPilotoDeCarro(string pil);
 
 	string mostraPilotos() const;
 

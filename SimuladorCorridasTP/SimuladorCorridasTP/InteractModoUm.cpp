@@ -37,33 +37,36 @@ void InteractModoUm::opcoesModo1() {
 
 	else if (c[0] == "carregaC")
 		cout << "carregaP d Aco";
+
 	else if (c[0] == "carregaA")
 		cout << "carregaP d Aco";
 
-	else if (c[0] == "cria") {
-		int err = j->criaItensJogo(c);
-		if (err == 1)
-			cout << "Erro a criar o piloto, tente novamente" << endl;
-		if (err == 2)
-			cout << "Erro a criar o carro, tente novamente" << endl;
+	else if (c[0] == "cria")
+		cout << j->criaItensJogo(c);
 
-		if (err == 5) {
-			cout << "Tipo não existente, tente novamente" << endl;
-		}
-	}
 	else if (c[0] == "apaga")
-		j->eliminaCarro(c[1]);
+		cout << j->eliminaCarro(c);
+
 	else if (c[0] == "entranocarro")
-		cout << "carregaP d Aco";
+		cout << j->inserePilotoEmCarro(c[1], c[2]);
+
+	else if (c[0] == "saidocarro")
+		cout << j->retiraPilotoDeCarro(c[1]);
+
 	else if (c[0] == "lista")
-		//cout << "carregaP d Aco";
 		cout << j->mostraPilotos();
+
+	else if (c[0] == "campeonato")
+		cout << "Passa para campeonato";
+
 	else if (c[0] == "savedgv")
-		cout << "carregaP d Aco";
+		cout << "Guarda DGV";
+
 	else if (c[0] == "loaddgv")
-		cout << "carregaP d Aco";
+		cout << "carrega DGV";
+
 	else if (c[0] == "deldgv")
-		cout << "carregaP d Aco";
+		cout << "Apaga DGV";
 }
 
 void InteractModoUm::helpModo1() const {

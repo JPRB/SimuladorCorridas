@@ -11,13 +11,17 @@ class DGV {
 
 public:
 
-	void insereCarro(Carro* aux);
+	string insereCarro(vector <string> vec);
 
-	void inserePiloto(Piloto* aux);
+	string inserePiloto(string tipo, string nome);
 
-	void eliminaCarro(string ident);
+	string eliminaCarro(string ident);
 
-	void eliminaPiloto(string ident);
+	string eliminaPiloto(string ident);
+
+	string inserePilotoEmCarro(string car, string pil);
+
+	string retiraPilotoDeCarro(string pil);
 
 	string listaPilotos() const;
 

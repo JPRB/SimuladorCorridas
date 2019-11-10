@@ -20,6 +20,14 @@ public:
 
 	string getNome() const;
 
+	char getIDCar() const;
+
+	bool temCarroAtribuido() const;
+
+	void atribuiCarro(Carro *c);
+
+	void retiraCarro();
+
 	static Piloto* fabrica(string tipo, string nome);
 
 };
