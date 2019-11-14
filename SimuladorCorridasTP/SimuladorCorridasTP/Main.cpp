@@ -1,5 +1,5 @@
 #include "Jogo.h"
-#include "InteractModoUm.h"
+#include "Interaction.h"
 
 
 using namespace std;
@@ -7,8 +7,7 @@ using namespace std;
 int main() {
 	Jogo jog;
 
-	InteractModoUm it(&jog);
+	Interaction it(&jog);
 
 	it.leituraComandos();
-	
 }

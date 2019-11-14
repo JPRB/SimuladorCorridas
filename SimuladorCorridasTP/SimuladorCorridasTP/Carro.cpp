@@ -4,7 +4,7 @@ int Carro::idcar = 'a';
 
 Carro::Carro(string mar, double maxe, int maxv, string mod)
 	:marca(mar), modelo(mod), id(idcar++), maxenergia(maxe), maxvelocidade(maxv),
-	emergencia(false), parado(true), danificado(false), velocidade(0), energia(0){}
+	emergencia(false), parado(true), danificado(false), velocidade(0), energia(maxe){}
 
 char Carro::getID() const {
 	return id;
@@ -12,6 +12,13 @@ char Carro::getID() const {
 
 string Carro::getMarca() const {
 	return marca;
+}
+
+string Carro::getAsString() const {
+	ostringstream oss;
+	oss << "Marca: " << marca << " Modelo: " << modelo << " Vel. Maxima: " << maxvelocidade << " Max. Energia: " << maxenergia;
+	oss << "\nDanificado: " << danificado << "Energia: " << energia << "\n";
+	return oss.str();
 }
 
 void Carro::manivela(int val) {

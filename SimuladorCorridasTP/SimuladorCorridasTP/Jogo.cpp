@@ -6,6 +6,14 @@ Jogo::Jogo() {
 	dgv = new DGV();
 }
 
+void Jogo::carregaPilotos(string fich) {
+	dgv->carregaPilotosFich(fich);
+}
+
+void Jogo::carregaCarrosFich(string fich) {
+	dgv->carregaCarrosFich(fich);
+}
+
 string Jogo::criaItensJogo(vector <string> vec) {
 	if (vec[1] == "p"){
 		transform(vec[2].begin(), vec[2].end(), vec[2].begin(), ::toupper); //letra identificadora do piloto passa a maiuscula
@@ -24,7 +32,7 @@ string Jogo::inserePilotoEmCarro(string car, string pil) {
 	return dgv->inserePilotoEmCarro(car, pil);
 }
 
-string Jogo::eliminaCarro(vector <string> vec) {
+string Jogo::eliminaItemJogo(vector <string> vec) {
 	transform(vec[1].begin(), vec[1].end(), vec[1].begin(), ::tolower); //1-onde comecar , 2 - onde terminar, 3-onde guardar nova string, 4-o que fazer
 	transform(vec[2].begin(), vec[2].end(), vec[2].begin(), ::tolower);
 
@@ -42,6 +50,10 @@ string Jogo::retiraPilotoDeCarro(string pil) {
 	return dgv->retiraPilotoDeCarro(pil);
 }
 
-string Jogo::mostraPilotos() const {
-	return dgv->listaPilotos();
+string Jogo::listagem() const {
+	return dgv->listagem();
+}
+
+Jogo::~Jogo() {
+	delete dgv;
 }

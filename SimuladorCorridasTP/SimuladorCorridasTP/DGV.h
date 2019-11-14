@@ -1,7 +1,10 @@
 #pragma once
 #include "Carro.h"
 #include "Piloto.h"
+#include "CrazyDriver.h"
+#include "FastDriver.h"
 #include <vector>
+#include <fstream>
 
 using namespace std;
 
@@ -10,6 +13,10 @@ class DGV {
 	vector <Piloto*> pilotos;
 
 public:
+
+	void carregaPilotosFich(string fich);
+
+	void carregaCarrosFich(string fich);
 
 	string insereCarro(vector <string> vec);
 
@@ -23,8 +30,10 @@ public:
 
 	string retiraPilotoDeCarro(string pil);
 
-	string listaPilotos() const;
+	string listagem() const;
 
 	string listaCarros() const;
+
+	~DGV();
 
 };

@@ -1,5 +1,45 @@
 #include "DGV.h"
 #include <sstream>
+#include <iostream>
+
+void DGV::carregaPilotosFich(string fich) {
+	ifstream f;
+	string tipo;
+	string nome;
+	f.open(fich);
+	
+	while (!f.eof()) {
+		f >> tipo;
+		getline(f, nome);
+		cout << "Aqui";
+		if (tipo == "c")
+			pilotos.push_back(new CrazyDriver(nome));
+		else if(tipo == "f")
+			pilotos.push_back(new FastDriver(nome));
+	}
+
+	f.close();
+}
+
+void DGV::carregaCarrosFich(string fich) {
+	ifstream f;
+	int maxenergia, maxvelocidade;
+	string marca, modelo;
+	f.open(fich);
+
+	while (!f.eof()) {
+		modelo = "";
+		f >> maxenergia;
+		f >> maxvelocidade;
+		f >> marca;
+		f >> modelo;
+		if (modelo != "")
+			carros.push_back(new Carro(marca, maxenergia, maxvelocidade, modelo));
+		else
+			carros.push_back(new Carro(marca, maxenergia, maxvelocidade));
+	}
+}
+
 
 string DGV::insereCarro(vector <string> vec) {
 	if (vec[2] != "" && vec[3] != "" && vec[4] != "") {
@@ -90,11 +130,15 @@ string DGV::retiraPilotoDeCarro(string pil) {
 }
 
 
-string DGV::listaPilotos() const {
+string DGV::listagem() const {
 	ostringstream os;
-
+	os << "Pilotos: \n";
 	for (unsigned int i = 0; i < pilotos.size(); i++)
-		os << "Nome: " << pilotos[i]->getNome() << " " << pilotos[i]->getIDCar() <<"\n";
+		os << "Nome: " << pilotos[i]->getNome() <<"\n";
+
+	os << "Carros: \n";
+	for (unsigned int i = 0; i < carros.size(); i++)
+		os << carros[i]->getAsString();
 
 	return os.str();
 }
@@ -106,4 +150,15 @@ string DGV::listaCarros() const {
 		os << "Nome: " << carros[i]->getMarca() << " ID: " << carros[i]->getID() << "\n";
 
 	return os.str();
+}
+
+DGV::~DGV() {
+	//liberta memoria vector pilotos
+	vector <Piloto*>::iterator it;
+	for (it = pilotos.begin(); it != pilotos.end(); it++)
+		delete *it;
+
+	vector <Carro*>::iterator itC;
+	for (auto itC = carros.begin(); itC != carros.end(); itC++)
+		delete* itC;
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -22,6 +23,8 @@ public:
 	char getID() const;
 
 	string getMarca() const;
+
+	string getAsString()const;
 
 	void manivela(int val);
 
