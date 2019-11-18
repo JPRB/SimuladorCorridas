@@ -1,6 +1,8 @@
 #include "DGV.h"
 #include <sstream>
 
+using namespace std;
+
 void DGV::insereCarro(Carro *aux) {
 	carros.push_back(aux);
 }

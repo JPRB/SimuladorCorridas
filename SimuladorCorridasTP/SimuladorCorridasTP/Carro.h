@@ -1,7 +1,7 @@
 #pragma once
+
 #include <string>
 
-using namespace std;
 
 class Carro {
 	const string marca;
@@ -9,9 +9,9 @@ class Carro {
 	const char id;
 	const int maxvelocidade;
 	const double maxenergia;
-	int velocidade = 0;
+	int velocidadeAtual = 0;
 	double energia = 0;
-	bool parado = false, emergencia = false;
+	bool parado = true, emergencia = false;
 	bool danificado = false;
 
 public:
@@ -20,26 +20,54 @@ public:
 	Carro(string mar, char idd, double maxe, int maxv, string mod = "Base");
 
 	//Destrutor da Class
-	~Carro(){}
+	/*
+	* Using virtual destructors, you can destroy objects without knowing their type.
+	* the correct destructor for the object is invoked using the virtual function mechanism.
+	*
+	*/
+	~Carro() {}
 
-	char getID() const;
+	// return faz sentido fazer no header para nao ter que ir por exemplo à pilha.. 
+	// É mais rápido 
+	inline char getID() const {
+		return id;
+	}
 
-	bool getDanificado() const;
+	inline bool getDanificado() const {
+		return danificado;
+	}
 
 	void setDanificado(bool danificado);
 
-	// Manivela de carregamento do carro (em mAh)
-	void manivela(int valCarregamento);
+	/* Manivela de carregamento do carro (em mAh)
+	* Não pode ultrapassar a quantidade Max de energia. 
+	* Se conseguir carregar, devolve true
+	* Senão devolve False
+	*/
+	bool manivela(int valCarregamento);
 
 	void setEmergencia();
 
-	// Alterar Estado do Carro ( e vice-versa)
-	//// Se ñ estiver parado, passa a estar
+	 /* Alterar Estado do Carro ( e vice-versa)
+	 *
+	 *  Se não estiver parado, passa a estar
+	 *
+	 */
 	void setEstado();
 
-	void acelerar(int velo=1);
+	/* Acelerar
+	 *
+	 *  Se velocidade max < velocidadeAtual -> Acelera
+	 *
+	 */
+	void acelerar(int velo = 1);
 
-	void travao();
+	/* Travar
+	 *
+	 *  Chama o method acelerar com velocidade -1
+	 *
+	 */
+	void travar();
 
 
 

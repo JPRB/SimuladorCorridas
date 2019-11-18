@@ -13,12 +13,12 @@ Piloto::Piloto(string name)
 
 void Piloto::acelera() {
 	if (car != nullptr)
-		car->acelerador();
+		car->acelerar();
 }
 
 void Piloto::trava() {
 	if (car != nullptr)
-		car->travao();
+		car->travar();
 }
 
 Piloto* Piloto::fabrica(string tipo, string nome) {
