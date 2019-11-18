@@ -1,5 +1,6 @@
 #include "Carro.h"
 
+int Carro::idcar = 'a';
 //using namespace Carro;
 using namespace std;
 
@@ -12,6 +13,17 @@ Carro::~Carro(){}
 
 void Carro::setDanificado(bool estragado) {
 	this->danificado = estragado;
+}
+
+string Carro::getMarca() const {
+	return marca;
+}
+
+string Carro::getAsString() const {
+	ostringstream oss;
+	oss << "Marca: " << marca << " Modelo: " << modelo << " Vel. Maxima: " << maxvelocidade << " Max. Energia: " << maxenergia;
+	oss << "\nDanificado: " << danificado << "Energia: " << energia << "\n";
+	return oss.str();
 }
 
 bool Carro::manivela(int quantEnergia) {

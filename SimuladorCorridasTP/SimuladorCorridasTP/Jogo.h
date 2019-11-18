@@ -11,8 +11,19 @@ class Jogo {
 public:
 	Jogo();
 
-	int criaItensJogo(vector <string> vec);
+	void carregaPilotos(string fich);
 
-	string mostraPilotos() const;
+	void carregaCarrosFich(string fich);
 
+	string criaItensJogo(vector <string> vec);
+
+	string eliminaItemJogo(vector <string> vec);
+
+	string inserePilotoEmCarro(string car, string pil);
+
+	string retiraPilotoDeCarro(string pil);
+
+	string listagem() const;
+
+	~Jogo();
 };

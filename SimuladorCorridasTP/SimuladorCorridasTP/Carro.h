@@ -1,9 +1,11 @@
 #pragma once
 
 #include <string>
+#include <sstream>
 
 
 class Carro {
+	static int idcar;
 	const string marca;
 	string modelo;
 	const char id;
@@ -16,8 +18,7 @@ class Carro {
 
 public:
 
-	//Construtor
-	Carro(string mar, char idd, double maxe, int maxv, string mod = "Base");
+	Carro(string mar, double maxe, int maxv, string mod = "Modelo Base");
 
 	//Destrutor da Class
 	/*
@@ -45,6 +46,11 @@ public:
 	* Senão devolve False
 	*/
 	bool manivela(int valCarregamento);
+
+	string getMarca() const;
+
+	string getAsString()const;
+
 
 	void setEmergencia();
 

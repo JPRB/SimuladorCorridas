@@ -5,10 +5,8 @@
 
 using namespace std;
 
-static vector <string> usados; //nomes usados
-
 class Piloto {
-	static char num;
+	static vector<string> usados;
 	const string nome; //unico, a classe altera caso ja exista
 	Carro *car;
 
@@ -20,9 +18,15 @@ public:
 
 	void trava();
 
-	string getNome() const {
-		return nome;
-	}
+	string getNome() const;
+
+	char getIDCar() const;
+
+	bool temCarroAtribuido() const;
+
+	void atribuiCarro(Carro *c);
+
+	void retiraCarro();
 
 	static Piloto* fabrica(string tipo, string nome);
 
